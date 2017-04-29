@@ -3,11 +3,13 @@
 You have a document collection that looks like below 
 ```json
 { 
-    "number" : "1" 
+    "number" : 1,
+    "type": "odd"
 }
 ```
 1. Create query in mongo cli that will sum all numbers in collection
 2. Create query in mongo cli that will show maximum value in collection
+3. Create query in mongo cli that will sum all numbers for odd and even group
 
 # Prerequisites
 
@@ -34,7 +36,7 @@ mongo
 
 # Resolution
 
-1. Run following commands and explore output, you should see 8
+1. Run following commands and explore output, you should see 10
 ```json
 db.numbers.aggregate([ 
     { 
@@ -49,7 +51,7 @@ db.numbers.aggregate([
 ])
 ```
 
-2. Run following commands and explore output, you should see 3
+2. Run following commands and explore output, you should see 4
 ```json
 db.numbers.aggregate([ 
     { 
@@ -61,5 +63,20 @@ db.numbers.aggregate([
             "sum": { $max: "$number" } 
         } 
     } 
+])
+```
+
+2. Run following commands and explore output, you should see two values 4 and 6
+```json
+db.numbers.aggregate([ 
+    { 
+        $match: {}
+    }, 
+    { 
+        $group: { 
+            _id: "$type", 
+            "sum": { $sum: "$number"} 
+        } 
+    }  
 ])
 ```

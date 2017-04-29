@@ -1,6 +1,6 @@
-{ "number" : 1 }
-{ "number" : 1 }
-{ "number" : 1 }
-{ "number" : 1 }
-{ "number" : 1 }
-{ "number" : 3 }
+{ "number" : 1, "type": "odd" }
+{ "number" : 2, "type": "even" }
+{ "number" : 1, "type": "odd" }
+{ "number" : 1, "type": "odd" }
+{ "number" : 1, "type": "odd" }
+{ "number" : 4, "type": "even" }
